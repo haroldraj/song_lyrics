@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:song_lyrics/views/screens/home/home_screen.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:song_lyrics/widgets/custom_navigation_bar.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -17,10 +17,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Song Lyrics',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      home: const CustomNavigationBar(),
     );
   }
 }
