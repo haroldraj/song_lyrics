@@ -2,7 +2,7 @@
 >**with Flutter**
 
 <p align="center">
-<img src="https://github.com/haroldraj/song_lyrics/blob/dev/assets/images/flutter-logo.png" alt="Flutter" width="40%" height="40%"/> 
+<img src="https://github.com/haroldraj/song_lyrics/blob/main/assets/images/flutter-logo.png" alt="Flutter" width="40%" height="40%"/> 
 </p>
 
 ## Used Dependancies
