@@ -24,7 +24,7 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace = "com.example.song_lyrics"
+    namespace = "com.set7up.song_lyrics"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
