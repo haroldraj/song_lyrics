@@ -78,10 +78,7 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
         title: const Text(
           "Search a song's lyrics",
-          style: TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(fontSize: 25),
         ),
       ),
       body: Container(

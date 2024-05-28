@@ -22,10 +22,7 @@ class _HistoryPageState extends State<HistoryPage> {
         centerTitle: true,
         title: const Text(
           "Search history",
-          style: TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(fontSize: 25),
         ),
       ),
       body: FutureBuilder<List<String>>(

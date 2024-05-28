@@ -15,10 +15,7 @@ class LyricsPage extends StatelessWidget {
         centerTitle: true,
         title: Text(
           appBarTitle,
-          style: const TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
-          ),
+          style: const TextStyle(fontSize: 25),
         ),
       ),
       body: Container(
