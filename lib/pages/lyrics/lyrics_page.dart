@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:song_lyrics/models/search_lyrics_model.dart';
-import 'package:song_lyrics/services/text_service.dart';
+import 'package:song_lyrics/models/lyrics_model.dart';
 
 class LyricsPage extends StatelessWidget {
   final LyricsModel lyricsResult;
@@ -8,8 +7,8 @@ class LyricsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appBarTitle = TextService()
-        .capitalize("${lyricsResult.artistName} - ${lyricsResult.songTitle}");
+    final appBarTitle =
+        "${lyricsResult.artistName} - ${lyricsResult.songTitle}";
     return Scaffold(
       appBar: AppBar(
         elevation: 5,
@@ -24,12 +23,10 @@ class LyricsPage extends StatelessWidget {
       ),
       body: Container(
         margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-        child: Expanded(
-          child: SingleChildScrollView(
-            child: Text(
-              lyricsResult.lyrics!,
-              style: const TextStyle(fontSize: 17),
-            ),
+        child: SingleChildScrollView(
+          child: Text(
+            lyricsResult.lyrics!,
+            style: const TextStyle(fontSize: 17),
           ),
         ),
       ),

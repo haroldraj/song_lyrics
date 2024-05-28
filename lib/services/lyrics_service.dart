@@ -1,8 +1,7 @@
 import 'dart:convert';
-
 import 'package:logger/logger.dart';
 import 'package:song_lyrics/constants/url_config.dart';
-import 'package:song_lyrics/models/search_lyrics_model.dart';
+import 'package:song_lyrics/models/lyrics_model.dart';
 import 'package:http/http.dart' as http;
 
 class LyricsService {
