@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:song_lyrics/constants/helpers.dart';
-import 'package:song_lyrics/models/search_lyrics_model.dart';
+import 'package:song_lyrics/models/lyrics_model.dart';
 import 'package:song_lyrics/pages/lyrics/lyrics_page.dart';
 import 'package:song_lyrics/services/lyrics_service.dart';
+import 'package:song_lyrics/services/lyrics_storage_service.dart';
+import 'package:song_lyrics/services/text_service.dart';
 import 'package:song_lyrics/widgets/custom_text_form_field.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,6 +21,8 @@ class _HomePageState extends State<HomePage> {
   final _formKey = GlobalKey<FormState>();
   String result = '';
   bool isLoading = false;
+  final TextService _textService = TextService();
+  final LyricsStorageService _lyricsStorageService = LyricsStorageService();
 
   @override
   void initState() {
@@ -39,11 +43,11 @@ class _HomePageState extends State<HomePage> {
         });
         debugPrint("Loging in");
         LyricsModel lyricsResult = LyricsModel(
-          artistName: artistNameController.text.trim(),
-          songTitle: songTitleController.text.trim(),
+          artistName: _textService.capitalize(artistNameController.text.trim()),
+          songTitle: _textService.capitalize(songTitleController.text.trim()),
         );
         final lyrics = await LyricsService().searchSongLyrics(lyricsResult);
-        if (!mounted) return;
+
         if (lyrics == 'No lyrics found') {
           setState(() {
             result =
@@ -51,6 +55,8 @@ class _HomePageState extends State<HomePage> {
             isLoading = false;
           });
         } else {
+          await _lyricsStorageService.saveLyrics(lyricsResult);
+          if (!mounted) return;
           Helpers.goTo(context, LyricsPage(lyricsResult: lyricsResult));
         }
       }
