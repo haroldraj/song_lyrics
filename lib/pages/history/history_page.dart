@@ -6,9 +6,14 @@ import 'package:song_lyrics/models/lyrics_model.dart';
 import 'package:song_lyrics/pages/lyrics/lyrics_page.dart';
 import 'package:song_lyrics/services/lyrics_storage_service.dart';
 
-class HistoryPage extends StatelessWidget {
+class HistoryPage extends StatefulWidget {
   const HistoryPage({super.key});
 
+  @override
+  State<HistoryPage> createState() => _HistoryPageState();
+}
+
+class _HistoryPageState extends State<HistoryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,25 +52,15 @@ class HistoryPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(15),
                       border: Border.all(color: Colors.black, width: 0.01),
                     ),
-                    margin: const EdgeInsets.only(top: 5, left: 5, right: 5),
+                    margin: const EdgeInsets.only(top: 1, left: 2, right: 2),
                     child: ListTile(
-                      trailing: IconButton(
-                        icon: Icon(
-                          Icons.delete,
-                          color: Colors.red.withOpacity(0.5),
-                        ),
-                        onPressed: () {
-                          debugPrint(
-                              "Delete on ${lyricsList[index].artistName!} - ${lyricsList[index].songTitle!}");
-                        },
-                      ),
                       leading: Text(
                         "${(index + 1)}.",
-                        style: const TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 16),
                       ),
                       title: Text(
                         "${lyricsList[index].artistName!} - ${lyricsList[index].songTitle!}",
-                        style: const TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 16),
                       ),
                       onTap: () {
                         Helpers.goTo(context,

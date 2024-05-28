@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:song_lyrics/constants/helpers.dart';
 import 'package:song_lyrics/models/lyrics_model.dart';
 import 'package:song_lyrics/pages/lyrics/lyrics_page.dart';
 import 'package:song_lyrics/services/lyrics_service.dart';
 import 'package:song_lyrics/services/lyrics_storage_service.dart';
 import 'package:song_lyrics/services/text_service.dart';
+import 'package:song_lyrics/widgets/custom_box_dialog.dart';
 import 'package:song_lyrics/widgets/custom_text_form_field.dart';
 
 class HomePage extends StatefulWidget {
@@ -27,11 +27,6 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    initialization();
-  }
-
-  void initialization() async {
-    FlutterNativeSplash.remove();
   }
 
   Future<void> _onSearchPessed() async {
@@ -62,6 +57,9 @@ class _HomePageState extends State<HomePage> {
       }
     } catch (error) {
       debugPrint("Error $error");
+      if (!mounted) return;
+      ShowDialog.error(context,
+          "No internet connexion found.You need to connect to internet to make a lyrics search.");
     }
   }
 
