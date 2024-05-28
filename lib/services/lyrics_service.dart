@@ -8,8 +8,7 @@ import 'package:http/http.dart' as http;
 class LyricsService {
   final Logger _logger = Logger();
 
-  Future<String> searchSongLyrics(
-      SearchLyricsModel lyricsToSearch) async {
+  Future<String> searchSongLyrics(LyricsModel lyricsToSearch) async {
     var url = Uri.parse(
         '${UrlConfig.apiUrl}/${lyricsToSearch.artistName}/${lyricsToSearch.songTitle}');
 
@@ -24,7 +23,7 @@ class LyricsService {
       return songLyrics;
     } else {
       _logger.e(response);
-      throw Exception('Error');
+      return ("No lyrics found");
     }
   }
 }

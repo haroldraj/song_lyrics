@@ -1,9 +1,9 @@
-class SearchLyricsModel {
+class LyricsModel {
   String? artistName;
   String? songTitle;
   String? lyrics;
 
-  SearchLyricsModel({
+  LyricsModel({
     this.artistName,
     this.songTitle,
     this.lyrics,
